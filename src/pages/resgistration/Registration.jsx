@@ -15,15 +15,14 @@ function Registration() {
   const [mobile, setMobile] = useState();
   const [consent, setConsent] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!name || !username || !email || !mobile || !consent) {
-      return alert("Please fill all the fields");
+      alert("Please fill all the fields");
       return;
     } else {
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify({ name, username, email, mobile })
-      );
+      const currentUser = { name, username, email, mobile };
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
     console.log(JSON.parse(localStorage.getItem("currentUser")));
   };
