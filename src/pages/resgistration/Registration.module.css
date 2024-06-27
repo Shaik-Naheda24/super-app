@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Single+Day&display=swap');
 
-body{
+/* body{
     color: white;
-    font-family: "DM Sans", sans-serif;
-    overflow: hidden;
     background-color: black;
-}
+} */
 
 .page{
     display: flex;
     height: 100vh;
     width: 100vw;
-    /* background-color: black; */
+    font-family: "DM Sans", sans-serif;
+    overflow: hidden;
+    color: white;
+    background-color: black;
 }
 
 .left{

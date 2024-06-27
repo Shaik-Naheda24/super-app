@@ -1,77 +1,98 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./GenrePage.module.css";
-import actionbg from "../../assets/Action.png";
-import dramabg from "../../assets/Drama.png";
-import romancebg from "../../assets/Romance.png";
-import thrillerbg from "../../assets/Thriller.png";
-import westernbg from "../../assets/Western.png";
-import horrorbg from "../../assets/Horror.png";
-import fantasybg from "../../assets/Fantasy.png";
-import musicbg from "../../assets/Music.png";
-import fictionbg from "../../assets/Fiction.png";
+import { genres } from "../../assets/data/genre";
+import { colors } from "../../assets/data/colors";
+import { IoIosWarning } from "react-icons/io";
 
 function GenrePage() {
-  const [genres, setGenres] = useState([
-    {
-      title: "Action",
-      bgImage: actionbg,
-    },
-    {
-      title: "Drama",
-      bgImage: dramabg,
-    },
-    {
-      title: "Romance",
-      bgImage: romancebg,
-    },
-    {
-      title: "Thriller",
-      bgImage: thrillerbg,
-    },
-    {
-      title: "Western",
-      bgImage: westernbg,
-    },
-    {
-      title: "Horror",
-      bgImage: horrorbg,
-    },
-    {
-      title: "Fantasy",
-      bgImage: fantasybg,
-    },
-    {
-      title: "Music",
-      bgImage: musicbg,
-    },
-    {
-      title: "Fiction",
-      bgImage: fictionbg,
-    },
-  ]);
-  const [selectedGenres, setSelectedGenres] = useState([1, 3, 5]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [lengthWarning, setLengthWarning] = useState(false);
+
+  useEffect(() => {
+    if (selectedGenres.length >= 3) {
+      setLengthWarning(false);
+    }
+    localStorage.setItem("selectedGenres", JSON.stringify(selectedGenres));
+    console.log(localStorage.getItem("selectedGenres"));
+  }, [selectedGenres]);
+
+  const bgColors = [
+    "#FF5209",
+    "#D7A4FF",
+    "#148A08",
+    "#84C2FF",
+    "#902500",
+    "#7358FF",
+    "#FF4ADE",
+    "#E61E32",
+    "#6CD061",
+  ];
 
   const removeGenre = (index) => {
-    const newGenres = selectedGenres.filter((item) => item != index);
+    const newGenres = selectedGenres.filter((item) => item !== index);
     setSelectedGenres(newGenres);
+  };
+
+  const selectGenre = (index) => {
+    if (selectedGenres.includes(index)) return;
+    setSelectedGenres((prev) => [...prev, index]);
+  };
+
+  const handleNext = () => {
+    if (selectedGenres.length < 3) {
+      setLengthWarning(true);
+    } else {
+      setLengthWarning(false);
+    }
   };
 
   return (
     <div className={styles.page}>
       <div className={styles.left}>
-        <h2>Super app</h2>
-        <h1>Choose your entertainment category</h1>
+        <div className={styles.headers}>
+          <h1 className={styles.leftHeader}>Super app</h1>
+          <h2 className={styles.leftSubHeader}>
+            Choose your <br />
+            entertainment <br />
+            category
+          </h2>
+        </div>
         <div className={styles.selected}>
-          {selectedGenres.map((item) => (
+          {selectedGenres.map((item, index) => (
             <div key={item} className={styles.selectedGenre}>
               {genres[item].title}
-              <img src={genres[item].bgImage} alt="background Image" />
               <button onClick={() => removeGenre(item)}>X</button>
             </div>
           ))}
         </div>
+        {lengthWarning && (
+          <div className={styles.warning}>
+            <IoIosWarning />
+            <div> &nbsp;Minimum 3 categories required</div>
+          </div>
+        )}
       </div>
-      <div className={styles.right}></div>
+      <div className={styles.right}>
+        <div className={styles.genreGrid}>
+          {genres.map((genre, index) => (
+            <div
+              key={index}
+              className={styles.genreCard}
+              onClick={() => selectGenre(index)}
+              style={{
+                backgroundColor: bgColors[index],
+                outline: selectedGenres.includes(index) ? "4pxsolid green" : "",
+              }}
+            >
+              <div className={styles.title}>{genre.title}</div>
+              <img src={genre.bgImage} alt="backgroung Image" />
+            </div>
+          ))}
+        </div>
+        <button className={styles.button} onClick={handleNext}>
+          Next Page
+        </button>
+      </div>
     </div>
   );
 }
