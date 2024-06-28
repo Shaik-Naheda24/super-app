@@ -1,8 +1,8 @@
-import Registration from "./pages/resgistration/Registration";
+import Registration from "./pages/registration/Registration";
 import GenrePage from "./pages/genre/GenrePage";
-import HomePage from "./pages/home/HomePage"
-import Dashboard from "./pages/dashboard/Dashboard";
-import Movies from "./pages/movies/Movies";
+import HomePage from "./pages/homepage/Homepage";
+import Dashboard from "./pages/dashboard/DashBoard";
+import PromotionPage from "./pages/promotion/PromotionPage";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Route path="/genre" element={<GenrePage />} ></Route>
         <Route path="/homepage" element={<HomePage />}></Route>
         <Route path="/dashboard" element={<Dashboard />} ></Route>
-        <Route path="/movies" element={<Movies />} ></Route>
+        <Route path="/movies" element={<PromotionPage />} ></Route>
       </Routes>
       </BrowserRouter>
     </div>
