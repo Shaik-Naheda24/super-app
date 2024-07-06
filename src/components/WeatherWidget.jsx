@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from "react";
-import styles from "./WeatherWidget.module.css";
+// import React, { useState, useEffect } from "react";
+import styles1 from "./WeatherWidget.module.css";
+import styles2 from "./WeatherWidgetSmall.module.css";
 import { FaThermometerThreeQuarters } from "react-icons/fa";
 import { FiWind } from "react-icons/fi";
 import { RiContrastDrop2Fill } from "react-icons/ri";
 
-function WeatherWidget({ weather }) {
+function WeatherWidget({ weather, type }) {
+  let styles;
+  if (type === "small") {
+    styles = styles2;
+  } else {
+    styles = styles1;
+  }
+
   const formatDate = () => {
     const formattedDate = new Date().toLocaleDateString("en-US", {
       year: "numeric",
@@ -33,7 +41,7 @@ function WeatherWidget({ weather }) {
             <div>{weather.condition.text}</div>
           </div>
           <div className={styles.column}>
-            <div style={{ fontSize: "1.5rem" }}>{weather.temp_c} °C </div>
+            <div style={{ fontSize: "1.2rem" }}>{weather.temp_c} °C </div>
             <div>
               <FaThermometerThreeQuarters className={styles.icon} />
               <div>{weather.pressure_mb} mbar</div>

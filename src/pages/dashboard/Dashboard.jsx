@@ -8,7 +8,7 @@ import { fetchNewsData } from "../../apis/news";
 import NotesWidget from "../../components/NotesWidget";
 import CountDownWidget from "../../components/CountDownWidget";
 import TimerWidget from "../../components/TimerWidget";
-import PromotionPage from "../promotion/PromotionPage";
+// import PromotionPage from "../promotion/PromotionPage";
 import { useNavigate } from "react-router-dom";
 
 function DashBoard() {
@@ -47,7 +47,7 @@ function DashBoard() {
           )}
         </div>
         <div className={styles.WeatherWidget}>
-          {weather && <WeatherWidget weather={weather} />}
+          {weather && <WeatherWidget weather={weather} type={"small"} />}
         </div>
         <div className={styles.TimerWidget}>
           <CountDownWidget />

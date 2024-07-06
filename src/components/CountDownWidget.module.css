@@ -49,13 +49,24 @@
 
 .start {
     background-color: #FF6A6A;
-    width: 50%;
+    width: 65%;
     color: white;
     border: none;
-    border-radius: 20px;
-    padding: 5px 20px;
-    font-size: 1rem;
+    border-radius: 50px;
+    padding: 5px 5px;
+    font-size: 1.5rem;
     cursor: pointer;
+    margin-bottom: 8%;
+}
 
+.stop{
+    font-size: x-large;
+    background-color: #FF6A6A;
+    margin-bottom: 2%;
+}
 
+.reset{
+    font-size: x-large;
+    background-color: #FF6A6A;
+    margin-bottom: 1%;
 }
