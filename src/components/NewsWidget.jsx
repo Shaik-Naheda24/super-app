@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./NewsWidget.module.css";
 
 function NewsWidget({ news }) {
-  console.log(news);
+  console.log(news); // Check the entire news object
+  console.log(news.description);
   const formatDate = (date) => {
     if (date) {
       const formattedDate = new Date(news.publishedAt).toLocaleDateString(

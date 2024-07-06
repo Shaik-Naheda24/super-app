@@ -33,7 +33,7 @@ function WeatherWidget({ weather }) {
             <div>{weather.condition.text}</div>
           </div>
           <div className={styles.column}>
-            <div style={{ fontSize: "3rem" }}>{weather.temp_c} °C </div>
+            <div style={{ fontSize: "1.5rem" }}>{weather.temp_c} °C </div>
             <div>
               <FaThermometerThreeQuarters className={styles.icon} />
               <div>{weather.pressure_mb} mbar</div>

@@ -18,11 +18,18 @@ export const fetchNewsData = async () => {
         }
     }
 
-    const { data, status } = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${NEWS_API}`
-    );
-    if (status === 200) {
-        return data.articles[0];
+    try {
+        const response = await axios.get(
+            `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${NEWS_API}`
+        );
+        console.log(response); // Log the full response
+        if (response.status === 200) {
+            return response.data.articles[0];
+        } else {
+            console.error("Error fetching news data:", response.status);
+        }
+    } catch (error) {
+        console.error("Error fetching news data:", error);
     }
 };
 

@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #101744;
     color: white;
-    border-radius: 30px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -43,5 +43,10 @@
 }
 
 .icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.column img{
+    width: 100px;
+    height: 100px;
 }
