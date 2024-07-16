@@ -10,11 +10,11 @@
 
 .container {
     height: 95%;
-    width: 95%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 8px 25px;
+    gap: 10px 40px;
     grid-auto-flow: row;
     align-items: stretch;
     grid-template-areas:
@@ -32,28 +32,24 @@
 }
 
 .WeatherWidget {
-
     background-color: #FF4ADE;
     grid-area: Weather-Widget;
     border-radius: 30px;
 }
 
 .TimerWidget {
-
     background-color: #1E2343;
     grid-area: Timer-Widget;
     border-radius: 30px;
 }
 
 .NotesWidget {
-
     background-color: #F1C75B;
     grid-area: Notes-Widget;
     border-radius: 30px;
 }
 
 .NewsWidget {
-    /* background-color: lightcoral; */
     grid-area: News-Widget;
     border-radius: 30px;
     height: 100%;
@@ -68,4 +64,5 @@
     border-radius: 50px;
     background-color: #148a14;
     color: #FFFFFF;
+    cursor: pointer;
 }

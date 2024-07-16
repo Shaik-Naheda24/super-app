@@ -4,6 +4,7 @@ import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { BsSignStop } from "react-icons/bs";
 import { BiReset } from "react-icons/bi";
+import "react-circular-progressbar/dist/styles.css";
 
 function CountDownWidget() {
   const [hours, setHours] = useState(0);
@@ -17,7 +18,7 @@ function CountDownWidget() {
       setFixedMinutes(minutes);
       setFixedSeconds(seconds);
     }
-  }, [seconds, minutes, hours]);
+  }, [seconds, minutes, hours, isActive]);
 
   const [fixedHours, setFixedHours] = useState(0);
   const [fixedMinutes, setFixedMinutes] = useState(0);
@@ -44,7 +45,7 @@ function CountDownWidget() {
         }
       }, 1000);
     }
-    if (seconds > 0) console.log(duration());
+    // if (seconds > 0) console.log(duration());
     return () => clearInterval(intervalRef);
   }, [isActive, seconds, minutes, hours]);
 
@@ -91,12 +92,14 @@ function CountDownWidget() {
   const handleStartStop = () => {
     setIsActive(!isActive);
   };
+
   const handleReset = () => {
     setIsActive(false);
-    setHours(fixedHours);
-    setMinutes(fixedMinutes);
-    setSeconds(fixedSeconds);
+    setHours(0);
+    setMinutes(0);
+    setSeconds(30);
   };
+
   const duration = () => {
     const curr = seconds + minutes * 60 + hours * 3600;
     const total = fixedSeconds + fixedMinutes * 60 + fixedHours * 3600;
@@ -114,7 +117,7 @@ function CountDownWidget() {
             .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`}
           strokeWidth={3}
           styles={buildStyles({
-            rotation: -0.25,
+            rotation: 0.25,
 
             // Text size
             textSize: "16px",

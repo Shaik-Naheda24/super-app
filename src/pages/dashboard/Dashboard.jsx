@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./DashBoard.module.css";
+import styles from "./Dashboard.module.css";
 import UserWidget from "../../components/UserWidget";
 import WeatherWidget from "../../components/WeatherWidget";
 import { fetchWeatherData } from "../../apis/weather";
@@ -8,7 +8,6 @@ import { fetchNewsData } from "../../apis/news";
 import NotesWidget from "../../components/NotesWidget";
 import CountDownWidget from "../../components/CountDownWidget";
 import TimerWidget from "../../components/TimerWidget";
-// import PromotionPage from "../promotion/PromotionPage";
 import { useNavigate } from "react-router-dom";
 
 function DashBoard() {

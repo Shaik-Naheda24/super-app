@@ -1,7 +1,7 @@
 import Registration from "./pages/registration/Registration";
 import GenrePage from "./pages/genre/GenrePage";
 import HomePage from "./pages/homepage/Homepage";
-import Dashboard from "./pages/dashboard/DashBoard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import PromotionPage from "./pages/promotion/PromotionPage";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
