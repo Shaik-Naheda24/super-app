@@ -4,7 +4,6 @@ import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { BsSignStop } from "react-icons/bs";
 import { BiReset } from "react-icons/bi";
-import "react-circular-progressbar/dist/styles.css";
 
 function CountDownWidget() {
   const [hours, setHours] = useState(0);
